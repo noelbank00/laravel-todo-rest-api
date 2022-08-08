@@ -1,0 +1,206 @@
+{
+	"info": {
+		"_postman_id": "b3778da6-aca9-40d6-9c74-bf4eebf3f4a6",
+		"name": "laravel-todo-list",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15755175"
+	},
+	"item": [
+		{
+			"name": "List all todo item",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/todo",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"todo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create todo item",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Elkell menni oviba",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "<p><script></script>2. csoport</p>",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/todo",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"todo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update todo item",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Teszt",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Szia.",
+							"type": "text"
+						},
+						{
+							"key": "completed",
+							"value": "13",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/todo/4",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"todo",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete todo item",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Teszt",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Szia.",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/todo/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"todo",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get todo item",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/todo/5",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"todo",
+						"5"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000/api",
+			"type": "string"
+		}
+	]
+}
