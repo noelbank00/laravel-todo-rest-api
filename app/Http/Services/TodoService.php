@@ -7,6 +7,7 @@ use App\Models\Todo;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
+use Stevebauman\Purify\Facades\Purify;
 
 class TodoService implements TodoInterface
 {
@@ -58,6 +59,10 @@ class TodoService implements TodoInterface
      */
     public function create(array $data): Todo
     {
+        foreach ($data as &$row) {
+            $row = Purify::clean($row);
+        }
+
         return Todo::create($data);
     }
 
@@ -68,6 +73,10 @@ class TodoService implements TodoInterface
      */
     public function update(Todo $todoItem, array $data): bool
     {
+        foreach ($data as &$row) {
+            $row = Purify::clean($row);
+        }
+
         return $todoItem->update($data);
     }
 
